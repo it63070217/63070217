@@ -35,6 +35,6 @@ while($Result = mysqli_fetch_array($res))
 <?php
 mysqli_close($conn);
 ?>
-<a href="https://63070217.azurewebsites.net/form%20(2).html" class="btn btn-primary" align="center">Read more</a>
+<input type="submit" id="commentBtn"><a href="https://63070217.azurewebsites.net/form%20(2).html" class="btn btn-primary" align="center">Read more</a>
 </body>
 </html>
