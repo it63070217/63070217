@@ -16,20 +16,21 @@ if (!$conn)
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
+$ID = $_POST['ID'];
 $name = $_POST['name'];
-$comment = $_POST['comment'];
+$text = $_POST['comment'];
 $link = $_POST['link'];
-$sql = "INSERT INTO guestbook (Name , Comment , Link) VALUES ('$name', '$comment', '$link')";
+$sql = "UPDATE guestbook SET Name='$name', Comment='$text', Link='$link' WHERE ID='$ID'";
 
 if (mysqli_query($conn, $sql)) {
     echo '<div class="container">
-            <h3>Comment has been saved in to the database successfully.</h3>
+            <h3>Comment has been updated successfully.</h3>
             <a role="button" class="btn btn-primary mt-3" href="guestbook.php">Home</a>
          </div>';
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-  
+
 mysqli_close($conn);
 ?>
 </body>
