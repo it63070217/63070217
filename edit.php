@@ -39,5 +39,3 @@ $comment = mysqli_fetch_array($res);
 <?php
 mysqli_close($conn);
 ?>
-</body>
-</html>
