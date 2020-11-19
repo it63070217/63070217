@@ -26,13 +26,13 @@ while($Result = mysqli_fetch_array($res))
     <td><?php echo $Result['Name'];?></div></td>
     <td><?php echo $Result['Comment'];?></td>
     <td><a href="delete.php?ID=<?php echo $Result["ID"]; ?>"><button class="btn-del" style="background-color: rgb(100,150,200);">ลบ</button></a>
-    <a href="edit.php?ID=<?php echo $Result["ID"]; ?>"><button class="btn-edit style="background-color: rgb(100,150,200);">แก้ไข</button></a></td>
+    <a href="edit.php?ID=<?php echo $Result["ID"]; ?>"><button class="btn-edit" style="background-color: rgb(100,150,200);">แก้ไข</button></a></td>
   </tr>
 <?php
 }
 ?>
 </table>
-<a href="https://63070217.azurewebsites.net/form.html"><button>เพิ่ม</button></a>
+<a href="https://63070217.azurewebsites.net/form.html"><button style="background-color: rgb(200,50,50);">เพิ่ม</button></a>
 <?php
 mysqli_close($conn);
 ?>
