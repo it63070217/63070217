@@ -25,13 +25,14 @@ while($Result = mysqli_fetch_array($res))
   <tr>
     <td><?php echo $Result['Name'];?></div></td>
     <td><?php echo $Result['Comment'];?></td>
-    <td><a href="delete.php?id=<?php echo $row["id"]; ?>">Delete</a>
-    <a href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a></td>
+    <td><a href="delete.php?id=<?php echo $Result["id"]; ?>"><button class="btn-del">Delete</a>
+    <a href="edit.php?id=<?php echo $Result["id"]; ?>"><button class="btn-edit">Edit</a></td>
   </tr>
 <?php
 }
 ?>
 </table>
+<a href="https://63070217.azurewebsites.net/form.html"><button>Plus</button></a>
 <?php
 mysqli_close($conn);
 ?>
