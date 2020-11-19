@@ -1,48 +1,28 @@
-<?php
-require('db.php');
-include("auth.php");
-$id=$_REQUEST['id'];
-$query = "SELECT * from new_record where id='".$id."'"; 
-$result = mysqli_query($con, $query) or die ( mysqli_error());
-$row = mysqli_fetch_assoc($result);
-?>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Update Record</title>
-<link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-<div class="form">
-<h1>Update Record</h1>
+<html lang="en">
 <?php
-$status = "";
-if(isset($_POST['new']) && $_POST['new']==1)
+$conn = mysqli_init();
+mysqli_real_connect($conn, 'it63070217.mysql.database.azure.com', 'it63070217@it63070217', 'it-63070217', 'ITFLab', 3306);
+if (mysqli_connect_errno($conn))
 {
-$ID=$_REQUEST['ID'];
-$name =$_REQUEST['name'];
-$comment =$_REQUEST['comment'];
-$update="update guestbook set name='".$name."', comment='".$comment."',
-where ID='".$ID."'";
-mysqli_query($conn, $update) or die(mysqli_error());
-$status = "Record Updated Successfully. </br></br>
-<a href='show.php'>View Updated Record</a>";
-echo '<p style="color:#FF0000;">'.$status.'</p>';
-}else {
+    die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+$ID = $_POST['ID'];
+$name = $_POST['name'];
+$text = $_POST['comment'];
+$link = $_POST['link'];
+$sql = "UPDATE guestbook SET Name='$name', Comment='$text', Link='$link' WHERE ID='$ID'";
+
+if (mysqli_query($conn, $sql)) {
+    echo '<div class="container">
+            <h3>Comment has been updated successfully.</h3>
+            <a role="button" class="btn btn-primary mt-3" href="guestbook.php">Home</a>
+         </div>';
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+mysqli_close($conn);
 ?>
-<div>
-<form name="form" method="post" action=""> 
-<input type="hidden" name="new" value="1" />
-<input name="ID" type="hidden" value="<?php echo $row['ID'];?>" />
-<p><input type="text" name="name" placeholder="Enter Name" 
-required value="<?php echo $row['name'];?>" /></p>
-<p><input type="text" name="comment" placeholder="Enter comment" 
-required value="<?php echo $row['comment'];?>" /></p>
-<p><input name="submit" type="submit" value="Update" /></p>
-</form>
-<?php } ?>
-</div>
-</div>
 </body>
 </html>
