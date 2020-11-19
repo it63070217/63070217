@@ -28,7 +28,6 @@ while($Result = mysqli_fetch_array($res))
     <td><a href="delete.php?id=<?php echo $row["id"]; ?>">Delete</a>
     <a href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a></td>
   </tr>
-  <type="input" id="commentBtn">
 <?php
 }
 ?>
