@@ -27,7 +27,7 @@ $comment = mysqli_fetch_array($res);
             <div class="form-group">
                 <label for="inputLink">Link</label>
                 <?php
-                    echo '<input type="text" name="link" id="inputLink" class="form-control" placeholder="Enter Name" value="'.$comment["Link"].'">'
+                    echo '<input type="text" name="link" id="inputLink" class="form-control" placeholder="Enter Link" value="'.$comment["Link"].'">'
                 ?>
             </div>
             <div class="mt-4">
