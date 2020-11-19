@@ -32,7 +32,7 @@ while($Result = mysqli_fetch_array($res))
 }
 ?>
 </table>
-<div class="container" style="text-align: center;">
+<div class="container" style="text-align: center;padding:2%;">
     <a href="https://63070217.azurewebsites.net/form.html"><button>เพิ่ม</button></a>
 </div>
 <?php
