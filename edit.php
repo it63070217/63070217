@@ -10,13 +10,12 @@ if (mysqli_connect_errno($conn))
 $ID = $_POST['ID'];
 $name = $_POST['name'];
 $text = $_POST['comment'];
-$link = $_POST['link'];
-$sql = "UPDATE guestbook SET Name='$name', Comment='$text', Link='$link' WHERE ID='$ID'";
+$sql = "UPDATE guestbook SET Name='$name', Comment='$text' WHERE ID='$ID'";
 
 if (mysqli_query($conn, $sql)) {
     echo '<div class="container">
             <h3>Comment has been updated successfully.</h3>
-            <a role="button" class="btn btn-primary mt-3" href="guestbook.php">Home</a>
+            <a role="button" class="btn btn-primary mt-3" href="show.php">Home</a>
          </div>';
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
