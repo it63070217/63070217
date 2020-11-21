@@ -10,7 +10,7 @@ $ID = $_GET['ID'];
 $sql = "delete from guestbook where ID = $ID";
 
 if (mysqli_query($conn, $sql)) {
-    header('location:show (2).php');
+    header('location:show1.php');
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
