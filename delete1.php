@@ -5,13 +5,15 @@ if (mysqli_connect_errno($conn))
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
-$ID=$_GET['ID'];
-$result = mysqli_query($con,"DELETE FROM guestbook WHERE ID=$ID");
+
+$ID = $_GET['ID'];
+$sql = "delete from guestbook where ID = $ID";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Record deleted successfully";
+    header('location:show (2).php');
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
+
 mysqli_close($conn);
 ?>
