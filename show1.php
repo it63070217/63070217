@@ -1,6 +1,25 @@
 <html>
 <head>
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
 <title>ITF Lab</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Hello</title>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
 </head>
 <body>
 <?php
@@ -15,9 +34,10 @@ $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 <table width="600" border="1">
   <tr>
     <th width="100"> <div align="center">Name</div></th>
-    <th width="350"> <div align="center">Comment</div></th>
-    <th width="500"> <div align="center">Link</div></th>
-    <th width="150"> <div align="center">Action</div></th>
+    <th width="350"> <div align="center">Comment </div></th>
+    <th width="150"> <div align="center">Link </div></th>
+    <th width="150"> <div align="center">Delete </div></th>
+    <th width="150"> <div align="center">Edit </div></th>
   </tr>
 <?php
 while($Result = mysqli_fetch_array($res))
@@ -27,16 +47,16 @@ while($Result = mysqli_fetch_array($res))
     <td><?php echo $Result['Name'];?></div></td>
     <td><?php echo $Result['Comment'];?></td>
     <td><?php echo $Result['Link'];?></td>
-    <td><a href="delete1.php?ID=<?php echo $Result["ID"]; ?>"><button class="btn-del">ลบ</botton></a>
-    <a href="edit1.php?ID=<?php echo $Result["ID"]; ?>"><button class="btn-edit">แก้ไข</a></button></td>
+    <td><a href="delete1.php?ID=<?= $Result["ID"]; ?>" class="button">Delete</a></td>
+    <td><a href="edit1.php?ID=<?= $Result["ID"]; ?>" class="button">Edit</a></td>
   </tr>
 <?php
 }
 ?>
 </table>
-<a href="https://63070217.azurewebsites.net/form.html"><button>Plus</button></a>
 <?php
 mysqli_close($conn);
 ?>
+<a href="form.html" class="btn btn-primary">Insert</a>
 </body>
 </html>
