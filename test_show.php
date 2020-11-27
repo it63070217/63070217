@@ -54,6 +54,7 @@ $res = mysqli_query($conn, 'SELECT * FROM Guestbook');
       <th> <div align="center">น้ำหนัก </div></th>
       <th> <div align="center">ส่วนสูง </div></th>
       <th> <div align="center">bmi </div></th>
+      <th> <div align="center">การจัดการ </div></th>
     </tr>
   </thead>
   
@@ -65,6 +66,7 @@ $res = mysqli_query($conn, 'SELECT * FROM Guestbook');
       <td align="center"><?php echo $Result['weight'];?></td>
       <td align="center"><?php echo $Result['height'];?></td>
       <td align="center"><?php echo $Result['bmi'];?></td>
+      <td><a href="test_update.php?ID=<?= $Result["Id"]; ?>" class="button">Update</a></td>
     </tr>
 <?php
 }
