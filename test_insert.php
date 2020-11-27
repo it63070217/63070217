@@ -6,9 +6,9 @@
                 die('Failed to connect to MySQL: '.mysqli_connect_error());
             }
 
-        $name = $_GET['name'];
-        $height = $_GET['height'];
-        $weight = $_GET['weight'];
+        $name = $POST['name'];
+        $height = $_POST['height'];
+        $weight = $_POST['weight'];
         $bmi = $weight/($height*$height)
         $sql = "INSERT INTO Guestbook (name , height, weight, bmi) VALUES ('$name', '$height', '$weight', '$bmi')";
    
