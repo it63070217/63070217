@@ -13,16 +13,16 @@
 
 <?php
 $conn = mysqli_init();
-mysqli_real_connect($conn, 'ihost.it.kmitl.ac.th', 'it63070234', 'SMSylb15', 'it63070234_film', 3306);
+mysqli_real_connect($conn, 'it63070217.mysql.database.azure.com', 'it63070217@it63070217', 'it-63070217', 'test', 3306);
 if (mysqli_connect_errno($conn))
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
-$res = mysqli_query($conn, 'SELECT * FROM abc');
+$res = mysqli_query($conn, 'SELECT * FROM Guestbook');
 ?>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="show.php">LAB Database ITF</a>
+      <a class="navbar-brand" href="test_show.php">LAB Database ITF</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -30,10 +30,10 @@ $res = mysqli_query($conn, 'SELECT * FROM abc');
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="show.php">Show</a>
+            <a class="nav-link" href="test_show.php">Show</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="sad.html">Insert</a>
+            <a class="nav-link" href="test_form.html">Insert</a>
         </ul>
       </div>
     </div>
@@ -50,9 +50,10 @@ $res = mysqli_query($conn, 'SELECT * FROM abc');
 <table class="table table-bordered">
   <thead>
     <tr class="bg-success">
-      <th> <div align="center">A</div></th>
-      <th> <div align="center">B </div></th>
-      <th> <div align="center">C </div></th>
+      <th> <div align="center">ชื่อ </div></th>
+      <th> <div align="center">น้ำหนัก </div></th>
+      <th> <div align="center">ส่วนสูง </div></th>
+      <th> <div align="center">bmi </div></th>
     </tr>
   </thead>
   
@@ -60,9 +61,10 @@ $res = mysqli_query($conn, 'SELECT * FROM abc');
 <?php while($Result = mysqli_fetch_array($res))
 {?>
     <tr>
-      <td align="center"><?php echo $Result['A'];?></td>
-      <td align="center"><?php echo $Result['B'];?></td>
-      <td align="center"><?php echo $Result['C'];?></td>
+      <td align="center"><?php echo $Result['name'];?></td>
+      <td align="center"><?php echo $Result['weight'];?></td>
+      <td align="center"><?php echo $Result['height'];?></td>
+      <td align="center"><?php echo $Result['bmi'];?></td>
     </tr>
 <?php
 }
