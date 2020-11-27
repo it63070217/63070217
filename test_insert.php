@@ -6,12 +6,11 @@
                 die('Failed to connect to MySQL: '.mysqli_connect_error());
             }
 
-        $Id = $_GET['Id'];
         $name = $_GET['name'];
         $height = $_GET['height'];
         $weight = $_GET['weight'];
         $bmi = $weight/($height*$height)
-        $sql = "INSERT INTO Guestbook (Id , name , height, weight, bmi) VALUES ('$Id', '$name', '$height', '$weight', '$bmi')";
+        $sql = "INSERT INTO Guestbook (name , height, weight, bmi) VALUES ('$name', '$height', '$weight', '$bmi')";
    
         if (mysqli_query($conn, $sql)) {
     header("location:test_show.php");
