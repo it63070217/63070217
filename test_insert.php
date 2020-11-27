@@ -6,7 +6,7 @@
                 die('Failed to connect to MySQL: '.mysqli_connect_error());
             }
 
-        $name = $GET['name'];
+        $name = $_GET['name'];
         $height = $_GET['height'];
         $weight = $_GET['weight'];
         $bmi = $weight/($height*$height)
