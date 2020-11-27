@@ -9,7 +9,7 @@
         $name = $_GET['name'];
         $height = $_GET['height'];
         $weight = $_GET['weight'];
-        $bmi = $weight/($height*$height)
+        $bmi = $weight/($height*$height);
         $sql = "INSERT INTO Guestbook (name , height, weight, bmi) VALUES ('$name', '$height', '$weight', '$bmi')";
    
         if (mysqli_query($conn, $sql)) {
